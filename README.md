@@ -1,0 +1,2 @@
+# swarmopt
+Lightening fast MOPSO
