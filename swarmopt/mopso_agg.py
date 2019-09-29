@@ -4,6 +4,15 @@ import copy
 class Particle:
 
     def __init__(self, lb, ub):
+        """Initialize the particle.
+
+        Attributes
+        ----------
+        lb : float
+            lower bounds for initial values
+        ub : float
+            upper bounds for initial values
+        """
 
         self.lb = lb
         self.ub = ub
@@ -24,6 +33,27 @@ class Swarm:
 
     def __init__(self, function_list, n_particles, n_iterations,
                  lb, ub, w=0.7, c1=2.0, c2=2.0):
+        """Initialize the swarm.
+
+        Attributes
+        ---------
+        function_list : list
+            list of functions to optimize
+        n_particles : int
+            number of particles in swarm
+        n_iterations : int
+            number of optimization iterations
+        lb : float
+            lower bounds for initial values
+        ub : float
+            upper bounds for initial values
+        w : float
+            inertia weight
+        c1 : float
+            cognitive weight
+        c2 : float
+            social weight
+        """
 
         self.function_list = function_list
         self.n_obj = len(function_list)
@@ -61,6 +91,7 @@ class Swarm:
             self.population.append(Particle(self.lb, self.ub))
 
     def eval_fitness(self, particle):
+        """Evaluate particle fitness based on all functions in function_list"""
 
         _fitness = 0
 
